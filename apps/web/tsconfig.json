@@ -1,4 +1,70 @@
 {
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+
+    /* Projects */
+    /* Enables incremental compilation which allows TypeScript to only recompile files that have changed since the last build. */
+    /* Turborepo handles caching and incremental builds across projects by itself, so we set incremental to false. */
+    "incremental": false,
+    /* Enable constraints that allow a TypeScript project to be used with project references. */
+    /* Turborepo is designed to manage dependencies by itself, so we set composite to false */
+    "composite": false,
+
+    /* Type Checking */
+    /* Enable all strict type-checking options. */
+    "strict": true,
+    /* Add 'undefined' to a type when accessed using an index. */
+    "noUncheckedIndexedAccess": true,
+
+    /* Language and Environment */
+    /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "target": "ES2022",
+    /* Specify a set of bundled library declaration files that describe the target runtime environment. */
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    /* Control what method is used to detect module-format JS files. */
+    "moduleDetection": "force",
+
+    /* Modules */
+    /* Specify what module code is generated. */
+    "module": "ES2022",
+    /* Specify how TypeScript looks up a file from a given module specifier. */
+    "moduleResolution": "Bundler",
+    /* Specify the base directory to resolve non-relative module names. */
+    "baseUrl": ".",
+    /* Specify the root folder within your source files. */
+    "rootDir": "src",
+    /* Specify a set of entries that re-map imports to additional lookup locations. */
+    "paths": {
+      "@/*": ["./app/*"]
+    },
+    /* Enable importing .json files. */
+    "resolveJsonModule": true,
+
+    /* Emit */
+    // Remix takes care of building everything in `remix build`.
+    "noEmit": true,
+
+    /* Interop Constraints */
+    /* Ensure that each file can be safely transpiled without relying on other imports. */
+    "isolatedModules": true,
+    /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "esModuleInterop": true,
+    /* Ensure that casing is correct in imports. */
+    "forceConsistentCasingInFileNames": true,
+
+    /* Completeness */
+    /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,
+
+    "types": [
+      "@remix-run/cloudflare",
+      "@cloudflare/workers-types",
+      "vite/client"
+    ],
+    "jsx": "react-jsx",
+    "allowJs": true
+  },
+
   "include": [
     "worker-configuration.d.ts",
     "env.d.ts",
@@ -8,30 +74,5 @@
     "**/.server/**/*.tsx",
     "**/.client/**/*.ts",
     "**/.client/**/*.tsx"
-  ],
-  "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": [
-      "@remix-run/cloudflare",
-      "@cloudflare/workers-types",
-      "vite/client"
-    ],
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
-    "target": "ES2022",
-    "strict": true,
-    "allowJs": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./app/*"]
-    },
-
-    // Remix takes care of building everything in `remix build`.
-    "noEmit": true
-  }
+  ]
 }
