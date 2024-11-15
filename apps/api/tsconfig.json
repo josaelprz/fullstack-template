@@ -1,18 +1,58 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+
+    /* Projects */
+    /* Enables incremental compilation which allows TypeScript to only recompile files that have changed since the last build. */
+    /* Turborepo handles caching and incremental builds across projects by itself, so we set incremental to false. */
+    "incremental": false,
+    /* Enable constraints that allow a TypeScript project to be used with project references. */
+    /* Turborepo is designed to manage dependencies by itself, so we set composite to false */
+    "composite": false,
+
+    /* Type Checking */
+    /* Enable all strict type-checking options. */
     "strict": true,
-    "skipLibCheck": true,
+    /* Add 'undefined' to a type when accessed using an index. */
+    "noUncheckedIndexedAccess": true,
+
+    /* Language and Environment */
+    /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "target": "ESNext",
+    /* Specify a set of bundled library declaration files that describe the target runtime environment. */
     "lib": ["ESNext"],
+    /* Control what method is used to detect module-format JS files. */
+    "moduleDetection": "force",
+
+    /* Modules */
+    /* Specify what module code is generated. */
+    "module": "ESNext",
+    /* Specify how TypeScript looks up a file from a given module specifier. */
+    "moduleResolution": "Bundler",
+    /* Specify the base directory to resolve non-relative module names. */
+    "baseUrl": ".",
+    /* Specify the root folder within your source files. */
+    "rootDir": "src",
+    /* Specify a set of entries that re-map imports to additional lookup locations. */
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    /* Enable importing .json files. */
+    "resolveJsonModule": true,
+
+    /* Interop Constraints */
+    /* Ensure that casing is correct in imports. */
+    "forceConsistentCasingInFileNames": true,
+
+    /* Completeness */
+    /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,
+
     "types": ["@cloudflare/workers-types/2023-07-01"],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
   }
 }
-
